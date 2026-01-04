@@ -1,0 +1,318 @@
+{
+    "info": {
+        "name": "Sentai Gozyuger API",
+        "description": "API Collection for Sentai Gozyuger Announcement System",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000/api/v1"
+        }
+    ],
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "url": "{{base_url}}/health"
+            }
+        },
+        {
+            "name": "News",
+            "item": [
+                {
+                    "name": "Get All News",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/news?status=published&per_page=10",
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "published"
+                                },
+                                {
+                                    "key": "featured",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "per_page",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get News by Slug",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/news/slug/:slug"
+                    }
+                },
+                {
+                    "name": "Create News",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/news",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "Breaking News Title"
+                                },
+                                {
+                                    "key": "content",
+                                    "value": "News content here..."
+                                },
+                                {
+                                    "key": "excerpt",
+                                    "value": "Short excerpt"
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "published"
+                                },
+                                {
+                                    "key": "is_featured",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "image",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update News",
+                    "request": {
+                        "method": "PUT",
+                        "url": "{{base_url}}/news/:id"
+                    }
+                },
+                {
+                    "name": "Delete News",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "{{base_url}}/news/:id"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Characters",
+            "item": [
+                {
+                    "name": "Get All Characters",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{base_url}}/characters?status=active&main=true",
+                            "query": [
+                                {
+                                    "key": "status",
+                                    "value": "active"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "red"
+                                },
+                                {
+                                    "key": "main",
+                                    "value": "true"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Character by Slug",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/characters/slug/:slug"
+                    }
+                },
+                {
+                    "name": "Create Character",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/characters",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Character Name"
+                                },
+                                {
+                                    "key": "ranger_name",
+                                    "value": "Gozyuger Red"
+                                },
+                                {
+                                    "key": "color",
+                                    "value": "red"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "Character description"
+                                },
+                                {
+                                    "key": "is_main",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "image",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Robots",
+            "item": [
+                {
+                    "name": "Get All Robots",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/robots"
+                    }
+                },
+                {
+                    "name": "Create Robot",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/robots",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "Robot Name"
+                                },
+                                {
+                                    "key": "type",
+                                    "value": "Individual Mecha"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "Robot description"
+                                },
+                                {
+                                    "key": "image",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Songs",
+            "item": [
+                {
+                    "name": "Get All Songs",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/songs"
+                    }
+                },
+                {
+                    "name": "Create Song",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/songs",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "title",
+                                    "value": "Song Title"
+                                },
+                                {
+                                    "key": "type",
+                                    "value": "Opening"
+                                },
+                                {
+                                    "key": "artist",
+                                    "value": "Artist Name"
+                                },
+                                {
+                                    "key": "cover_image",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Blogs",
+            "item": [
+                {
+                    "name": "Get All Blogs",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/blogs"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Stories",
+            "item": [
+                {
+                    "name": "Get All Stories",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/stories"
+                    }
+                },
+                {
+                    "name": "Create Story",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/stories",
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "episode_number",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "title",
+                                    "value": "Episode Title"
+                                },
+                                {
+                                    "key": "synopsis",
+                                    "value": "Episode synopsis"
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "aired"
+                                },
+                                {
+                                    "key": "thumbnail",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
