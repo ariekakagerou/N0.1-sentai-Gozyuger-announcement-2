@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     const fetchAnnouncements = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/gozyuger/announcements`);
+        const res = await fetch(`${BASE_URL}/api/v1/news`);
         if (!res.ok) {
           throw new Error(`HTTP ${res.status}`);
         }
@@ -31,7 +31,7 @@ export default function Home() {
         }
       } catch (err) {
         console.error("Gagal memuat pengumuman", err);
-        setError("Tidak dapat terhubung ke server pengumuman.");
+        setError(`Tidak dapat terhubung ke server pengumuman. (${err instanceof Error ? err.message : String(err)})`);
       } finally {
         setLoading(false);
       }
